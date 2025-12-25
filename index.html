@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FlashInbox — 10-minute Disposable Email</title>
+  <meta name="description" content="Generate a disposable email in seconds. Keep your real inbox clean. Fast..." />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1M1XZWBM87"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1M1XZWBM87);
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">⚡</div>
+      <div>
+        <div class="name">FlashInbox</div>
+        <div class="tag">Disposable email, done right.</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="toggleTheme" class="btn ghost" title="Toggle theme">🌙</button>
+      <button id="notifyBtn" class="btn ghost" title="Desktop notifications">🔔</button>
+      <button id="newEmailBtn" class="btn primary">New Email</button>
+    </div>
+  </header>
+
+  <!-- AD SLOT: top banner -->
+  <section class="ad ad-top">
+    <div class="ad-box">Ad Slot (Top Banner) — Google AdSense / Ezoic / etc.</div>
+  </section>
+
+  <main class="layout">
+    <section class="panel">
+      <h2>Your disposable address</h2>
+
+      <div class="emailBox">
+        <input id="emailInput" readonly />
+        <button id="copyBtn" class="btn">Copy</button>
+        <button id="qrBtn" class="btn ghost">QR</button>
+      </div>
+
+      <div class="row">
+        <label class="field">
+          <span>Refresh</span>
+          <select id="refreshSelect">
+            <option value="0">Off</option>
+            <option value="5">Every 5s</option>
+            <option value="10" selected>Every 10s</option>
+            <option value="20">Every 20s</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Inbox search</span>
+          <input id="searchInput" placeholder="subject / from / text" />
+        </label>
+      </div>
+
+      <div class="row">
+        <button id="refreshBtn" class="btn">Refresh Inbox</button>
+        <button id="saveFavBtn" class="btn ghost">⭐ Save</button>
+        <button id="clearInboxBtn" class="btn danger ghost">Clear View</button>
+      </div>
+
+      <div class="helper">
+        <div class="chip">Unique UI</div>
+        <div class="chip">Fast inbox</div>
+        <div class="chip">Favorites</div>
+        <div class="chip">Search</div>
+      </div>
+
+      <div id="qrModal" class="modal hidden">
+        <div class="modalCard">
+          <div class="modalHead">
+            <strong>Scan to use this email</strong>
+            <button id="closeQr" class="btn ghost">✖</button>
+          </div>
+          <canvas id="qrCanvas" width="240" height="240"></canvas>
+          <p class="muted">Tip: scan this on mobile to paste quickly during signup.</p>
+        </div>
+      </div>
+
+      <h3 class="mt">Saved inboxes</h3>
+      <div id="favList" class="favList"></div>
+
+      <div class="proCard mt">
+        <h3>Go Pro (coming soon)</h3>
+        <ul>
+          <li>Email forwarding to your real inbox</li>
+          <li>Keep address longer (24h / 7d)</li>
+          <li>Custom aliases + folders</li>
+          <li>Remove ads</li>
+          <li>API access</li>
+        </ul>
+        <button class="btn primary" disabled>Upgrade (soon)</button>
+        <p class="muted">This section helps conversion once you add Stripe later.</p>
+      </div>
+    </section>
+
+    <section class="panel inbox">
+      <div class="inboxHead">
+        <h2>Inbox</h2>
+        <div class="status">
+          <span id="statusDot" class="dot"></span>
+          <span id="statusText">Idle</span>
+        </div>
+      </div>
+
+      <!-- AD SLOT: sidebar -->
+      <div class="ad ad-side">
+        <div class="ad-box">Ad Slot (Sidebar)</div>
+      </div>
+
+      <div id="messageList" class="messageList"></div>
+
+      <!-- AD SLOT: inline -->
+      <div class="ad ad-inline">
+        <div class="ad-box">Ad Slot (Inline)</div>
+      </div>
+
+      <section class="viewer">
+        <div class="viewerHead">
+          <h3>Message</h3>
+          <div class="viewerActions">
+            <button id="downloadBtn" class="btn ghost" disabled>Download</button>
+          </div>
+        </div>
+        <div id="messageMeta" class="meta muted">Select a message to view it.</div>
+        <pre id="messageBody" class="body"></pre>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="links">
+      <<div class="links">
+  <a href="/privacy.html">Privacy</a>
+  <a href="/terms.html">Terms</a>
+  <a href="/contact.html">Contact</a>
+    </div>
+    <div class="muted">© <span id="year"></span> FlashInbox. Keep your real inbox clean.</div>
+  </footer>
+
+  <script src="qr-mini.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
