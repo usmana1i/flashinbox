@@ -5,3 +5,29 @@
   from = "/api/1secmail"
   to = "/.netlify/functions/oneSecMail"
   status = 200
+
+  [[redirects]]
+from = "/temp-mail-for-discord"
+to = "/pages/temp-mail-for-discord.html"
+status = 200
+
+[[redirects]]
+from = "/temporary-email-for-facebook"
+to = "/pages/temporary-email-for-facebook.html"
+status = 200
+
+[[redirects]]
+from = "/disposable-email-for-instagram"
+to = "/pages/disposable-email-for-instagram.html"
+status = 200
+
+[[redirects]]
+from = "/10-minute-email-generator"
+to = "/pages/10-minute-email-generator.html"
+status = 200
+
+[[redirects]]
+from = "/temp-email-verification"
+to = "/pages/temp-email-verification.html"
+status = 200
+
